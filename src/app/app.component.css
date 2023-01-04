@@ -1,0 +1,8 @@
+.tabfavoris{
+    border: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgb(170, 170, 170);
+    background-color: rgb(235, 235, 235);
+    width: 300px;
+}
