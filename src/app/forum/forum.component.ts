@@ -9,5 +9,11 @@ import { Router } from '@angular/router';
 export class ForumComponent {
 
   constructor(private router: Router) {}
+  crea_rubrique() { 
+    this.router.navigate(['crea_rubrique']);
+  }
+  rubrique() { 
+    this.router.navigate(['rubrique']);
+  }
 
 }

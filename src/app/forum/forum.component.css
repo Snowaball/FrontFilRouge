@@ -1,0 +1,11 @@
+.rubriquebtn{
+    float: right;
+}
+
+.rubriquebox{
+    background-color: rgba(211, 211, 211, 0.527);
+    height: 150px;
+    padding-left: 25px;
+    padding-top: 30px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,16 @@
+.divmessage{
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.divbtn{
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+
+.btnspace{
+    margin-right: 5px;
+}

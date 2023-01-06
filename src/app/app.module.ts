@@ -6,13 +6,19 @@ import { HeaderComponent } from './header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ForumComponent } from './forum/forum.component';
 import { HomeComponent } from './home/home.component';
+import { NotificationComponent } from './notification/notification.component';
+import { CreateRubriqueComponent } from './create-rubrique/create-rubrique.component';
+import { RubriqueComponent } from './rubrique/rubrique.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ForumComponent,
-    HomeComponent
+    HomeComponent,
+    NotificationComponent,
+    CreateRubriqueComponent,
+    RubriqueComponent
   ],
   imports: [
     BrowserModule,

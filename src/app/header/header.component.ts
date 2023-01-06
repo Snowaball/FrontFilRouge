@@ -15,4 +15,7 @@ export class HeaderComponent {
   Accueil() { 
     this.router.navigate(['home']);
   }
+  Notif() { 
+    this.router.navigate(['notif']);
+  }
 }

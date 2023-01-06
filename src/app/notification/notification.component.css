@@ -1,0 +1,17 @@
+.selectform{
+    margin-bottom: 10px;
+    border-color: rgb(211, 211, 211);
+    border-radius: 5px;
+    height: 35px;
+}
+.objetform{
+
+    border-radius: 5px;
+    border: 1px solid rgb(211, 211, 211);
+    height: 35px;
+}
+.emailform{
+    border-radius: 5px;
+    border: 1px solid rgb(211, 211, 211);
+    height: 100px;
+}

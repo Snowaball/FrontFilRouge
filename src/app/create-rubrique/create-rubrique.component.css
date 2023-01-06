@@ -1,0 +1,10 @@
+.inputcrearubrique{
+    border-radius: 5px;
+    border: 1px solid rgb(211, 211, 211);
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.inputcrearubrique::placeholder{
+    color: black;
+}
