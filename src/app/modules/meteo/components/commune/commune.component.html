@@ -1,0 +1,30 @@
+<ng-container *ngIf="commune$ | async as commune">
+
+    <div class="card text-center mb-3">    
+        <div class="card-header">                        
+            <h2 class="m-0">{{commune.libelle}}</h2>
+        </div>
+        <div class="card-body">          
+          <ul class="d-flex flex-row inline-list flex-wrap">
+            <li class="w-50">
+                <small class="d-block text-muted">Latitude</small>
+                <span>{{commune.latitude | number:'.0-3'}}</span>
+            </li>
+            <li class="w-50">
+                <small class="d-block text-muted">Longitude</small>
+                <span>{{commune.longitude | number:'.0-3'}}</span>
+            </li>
+            <li class="w-50">
+                <small class="d-block text-muted">Département</small>
+                <span>{{commune.departement.libelle}}</span>
+            </li>
+            <li class="w-50">
+                <small class="d-block text-muted">Région</small>
+                <span>{{commune.departement.region.libelle}}</span>
+            </li>
+          </ul>          
+        </div>
+      </div>
+
+    <!-- {{commune | json}} -->
+</ng-container>

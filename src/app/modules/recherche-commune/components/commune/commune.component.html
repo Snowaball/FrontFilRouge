@@ -1,0 +1,28 @@
+<ng-container *ngIf="communes$ | async as communes;else loading">
+
+
+    <div *ngIf="!communes.length;else listeCommunes">
+        <app-alert [linkColor]="'alert-danger'">
+            <span><i class="bi bi-emoji-frown"></i> Aucunes communes enregistrées</span>
+        </app-alert>
+    </div>
+    
+    <ng-template #listeCommunes>
+
+        <ul *ngIf="communes.length" class="d-flex flex-row flex-wrap">
+            <li *ngFor="let commune of communes" class="w-25 p-2">
+                <a [routerLink]="'/meteo/'+commune.id">{{commune.libelle}}</a>            
+            </li>
+        </ul>
+
+    </ng-template>    
+
+</ng-container>
+
+<ng-template #loading>
+
+    <app-alert [linkColor]="'alert-info'">
+        <span><i class="bi bi-clock"></i> Chargement en cours...</span>
+    </app-alert> 
+
+</ng-template>

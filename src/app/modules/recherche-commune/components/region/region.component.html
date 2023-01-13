@@ -1,0 +1,28 @@
+<ng-container *ngIf="regions$ | async as regions;else loading">
+    
+    <div *ngIf="regions.length==0;else listeRegions">
+        <app-alert [linkColor]="'alert-danger'">
+            <span><i class="bi bi-emoji-frown"></i> Aucunes régions enregistrées</span>
+        </app-alert>
+    </div>
+
+    <ng-template #listeRegions>
+        <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel *ngFor="let region of regions" [title]="region.libelle" >
+                <ng-template ngbPanelContent>
+                    <app-departement [regionId]="region.id" ngbPanelContent></app-departement>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </ng-template>
+    
+</ng-container>
+
+<ng-template #loading>
+    <app-alert [linkColor]="'alert-info'">
+        <span><i class="bi bi-clock"></i> Chargement en cours...</span>
+    </app-alert>  
+</ng-template>
+
+
+ 

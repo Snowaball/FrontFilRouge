@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm" class="mt-3 w-50 mx-auto">
+
+  <h3 class="text-center mb-5">Connexion</h3>
+  
+  <div class="form-group mb-3">
+    <label for="email">Identifiant</label>
+    <input formControlName="email" id="email" class="form-control" type="text" placeholder="Saissisez ici votre identifiant..." autofocus>
+  </div>
+  
+  <div class="form-group mb-3">
+    <label for="password">Mot de passe</label>
+    <input formControlName="password" id="password" class="form-control" type="password" placeholder="Saissisez ici votre mot de passe...">
+  </div>
+
+  <app-alert [linkColor]="'alert-danger'" [hidden]="formErrorHidden">
+    <span>Identifiant ou mot de passe invalide</span>
+  </app-alert>
+  
+  <div class="hstack gap-2">
+    <button type="reset" routerLink="/signin" class="btn btn-info">Inscription</button>
+    <button (click)="onSubmit()" class="btn btn-success ms-auto">Connexion</button>  
+  </div>
+
+</form>

@@ -6,6 +6,10 @@ import { HeaderComponent } from './header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ForumComponent } from './forum/forum.component';
 import { HomeComponent } from './home/home.component';
+import { NgChartsModule } from 'ng2-charts';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './modules/auth/interceptor/auth.interceptor';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,11 +19,20 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,    
+    ReactiveFormsModule,
+    HttpClientModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgChartsModule,    
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+  },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

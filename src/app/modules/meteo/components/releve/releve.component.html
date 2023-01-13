@@ -1,0 +1,8 @@
+<div *ngIf="lineChartData.labels?.length" class="card card-body mb-3 p-0">
+    <h6 class="text-center p-2">{{title}}</h6>
+    <canvas baseChart
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [type]="'line'">
+    </canvas>
+</div>

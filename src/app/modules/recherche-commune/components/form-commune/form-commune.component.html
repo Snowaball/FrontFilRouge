@@ -1,0 +1,19 @@
+
+<form [formGroup]="rechercheForm">
+    <input formControlName="libelle" type="text" class="form-control mb-3" (input)="onSubmit()" placeholder="Rechercher une commune..." autofocus>            
+</form>
+
+<ng-container *ngIf="communes$ | async as communes">
+    <div  class="col-12">            
+        <h6>{{communes.length}} commune(s) trouvée(s)</h6>
+        <ul class="list-group mb-3">
+            <li *ngFor="let commune of communes" class="list-group-item p-2 cursor-pointer" [routerLink]="'/meteo/'+commune.id">
+                
+                <strong>{{commune.libelle}}</strong> <span class="text-muted ms-2">{{commune.departement?.libelle}} ({{commune.departement?.region?.libelle}})</span>
+                
+            </li>
+        </ul>      
+    </div>
+</ng-container>  
+
+<app-region></app-region>

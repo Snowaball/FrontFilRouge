@@ -1,0 +1,12 @@
+<ng-container *ngIf="listeReleves.length;else noData">
+    <app-history *ngFor="let releve of listeReleves"></app-history>
+</ng-container>
+
+<ng-template #noData>
+    <div class="alert alert-warning">
+        aucun rélevé météo disponible
+    </div>
+</ng-template>
+
+
+

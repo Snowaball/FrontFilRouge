@@ -1,0 +1,28 @@
+
+<ng-container *ngIf="departements$ | async as departements;else loading">
+
+    <div *ngIf="!departements.length;else listeDepartements">
+        <app-alert [linkColor]="'alert-danger'">
+            <span><i class="bi bi-emoji-frown"></i> Aucuns départements enregistrés</span>
+        </app-alert>
+    </div>
+
+    <ng-template #listeDepartements>
+        <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel *ngFor="let departement of departements" [title]="departement.libelle" >
+                <ng-template ngbPanelContent>
+                    <app-commune [departementId]="departement.id" ngbPanelContent></app-commune>
+                </ng-template>
+            </ngb-panel>
+        </ngb-accordion>
+    </ng-template>
+
+</ng-container>
+
+<ng-template #loading>
+
+    <app-alert [linkColor]="'alert-info'">
+        <span><i class="bi bi-clock"></i> Chargement en cours...</span>
+    </app-alert>  
+    
+</ng-template>

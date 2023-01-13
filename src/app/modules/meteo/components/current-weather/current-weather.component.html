@@ -1,0 +1,56 @@
+<ng-container *ngIf="weather$ | async as meteo;else loading">
+
+    <div *ngIf="meteo.weather as weather" class="card text-center mb-3">        
+        <div class="card-header">
+            <h6 class="m-0">Météo du {{weather.current_weather?.time | date:"dd/MM/YYYY à HH:mm"}}</h6>
+        </div>
+        <div class="card-body">                 
+          <ul class="d-flex flex-row inline-list justify-content-between">
+            <li>
+                <small class="d-block text-muted">Température</small>
+                {{weather.current_weather?.temperature}} <small>{{weather.hourly_units?.temperature_2m}}</small> 
+            </li>
+            <li>
+                <small class="d-block text-muted">Vitesse du vent</small>
+                {{weather.current_weather?.windspeed}} <small>{{weather.hourly_units?.windspeed_10m}}</small> 
+            </li>
+            <li>
+                <small class="d-block text-muted">Direction du vent</small>
+                 {{weather.current_weather?.winddirection}} <small>{{weather.hourly_units?.winddirection_10m}}</small> ({{weather.current_weather?.winddirection | windDirection}})
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div *ngIf="meteo.airQuality.generationtime_ms" class="card text-center mb-3">        
+        <div class="card-header">
+            <h6 class="m-0">Qualité de l'air</h6>
+        </div>
+        <div class="card-body">                 
+          <ul class="d-flex flex-row inline-list justify-content-between">
+            <li>
+                <small class="d-block text-muted">pm10</small>
+                {{meteo.airQuality.hourly?.pm10[0]}} <small>{{meteo.airQuality.hourly_units?.pm10}}</small> 
+            </li>
+             <li>
+                <small class="d-block text-muted">Monoxide de carbonne</small>
+                {{meteo.airQuality.hourly?.carbon_monoxide[0]}} <small>{{meteo.airQuality.hourly_units?.carbon_monoxide}}</small> 
+                
+            </li>
+            <li>
+                <small class="d-block text-muted">Ozone</small>
+                {{meteo.airQuality.hourly?.ozone[0]}} <small>{{meteo.airQuality.hourly_units?.ozone}}</small> 
+            </li> 
+          </ul>
+        </div>
+      </div>
+
+    <!-- {{meteo.weather | json}} -->
+
+</ng-container>
+
+<ng-template #loading>
+  <app-alert [linkColor]="'alert-info'">
+    <span><i class="bi bi-clock"></i> Chargement des relevés météo en cours</span>
+  </app-alert>
+</ng-template>
