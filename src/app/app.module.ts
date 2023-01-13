@@ -9,7 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { NotificationComponent } from './notification/notification.component';
 import { CreateRubriqueComponent } from './create-rubrique/create-rubrique.component';
 import { RubriqueComponent } from './rubrique/rubrique.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListeDiscussionComponent } from './liste-discussion/liste-discussion.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +20,16 @@ import { RubriqueComponent } from './rubrique/rubrique.component';
     HomeComponent,
     NotificationComponent,
     CreateRubriqueComponent,
-    RubriqueComponent
+    RubriqueComponent,
+    ListeDiscussionComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

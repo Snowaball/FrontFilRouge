@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'notif', component: NotificationComponent },
   { path: 'crea_rubrique', component: CreateRubriqueComponent },
-  { path: 'rubrique', component: RubriqueComponent },
+  { path: 'rubriques/:id', component: RubriqueComponent },
+  { path: '**', redirectTo: "home", pathMatch: "full"},
 ];
 
 @NgModule({

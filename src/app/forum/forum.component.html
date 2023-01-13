@@ -1,50 +1,17 @@
 <div>
-  <button (click)="crea_rubrique()" class="btn btn-outline-success rubriquebtn">
+  <button routerLink="/crea_rubrique" class="btn btn-outline-success rubriquebtn">
     Ajouter une rubrique
   </button>
 </div>
 <br><br>
-<div class="d-flex flex-column bd-highlight mb-3">
-  <div class="rubriquebox">
-    <h4><a (click)="rubrique()">Rubrique 1</a></h4>
+<div *ngIf="rubriques$ | async as rubriques" class="d-flex flex-column bd-highlight mb-3">
+  <div *ngFor="let rubrique of rubriques; let index = index" class="rubriquebox">
+    <h4 [routerLink]="'/rubriques/'+rubrique.id" >{{ rubrique.libelle }}</h4>
     <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s, when an unknown
+      {{ rubrique.description }}
     </p>
   </div>
-  <div class="rubriquebox">
-    <h4><a href="#">Rubrique 2</a></h4>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s, when an unknown
-    </p>
-  </div>
-  <div class="rubriquebox">
-    <h4><a href="#">Rubrique 3</a></h4>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s, when an unknown
-    </p>
-  </div>
-  <div class="rubriquebox">
-    <h4><a href="#">Rubrique 4</a></h4>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s, when an unknown
-    </p>
-  </div>
-  <div class="rubriquebox">
-    <h4><a href="#">Rubrique 5</a></h4>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s, when an unknown
-    </p>
-  </div>
+
 </div>
 
 <router-outlet></router-outlet>

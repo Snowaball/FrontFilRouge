@@ -1,0 +1,22 @@
+<ng-container *ngIf="discussions$ | async as discussions">
+  <div *ngFor="let discussion of discussions;" class="d-flex flex-column bd-highlight mb-3 divmessage" >
+    <div>
+      <h5>{{ discussion.utilisateur_id }}</h5>
+    </div>
+    <div></div>
+    <div>
+      <p>{{ discussion.message }}</p>
+    </div>
+    <div class="d-flex justify-content-between divbtn">
+      <div>
+        <button class="btn btn-outline-success btnspace">Répondre</button>
+        <button class="btn btn-outline-success">Voir les réponses</button>
+      </div>
+      <div>
+        <button class="btn btn-outline-primary btnspace">J'aime</button>
+        <button class="btn btn-outline-primary btnspace">Je n'aime pas</button>
+        <button class="btn btn-outline-danger">Signaler</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
